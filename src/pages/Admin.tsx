@@ -7,6 +7,7 @@ import { slugify } from "@/lib/utils";
 type Mode = "studio" | "projects" | "articles" | "skills" | "experience" | "messages" | "assets";
 
 export function AdminPage() {
+  if (import.meta.env.VITE_GITHUB_PAGES === "true") return <StaticAdminNotice />;
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -14,6 +15,29 @@ export function AdminPage() {
   }, []);
   if (loading) return <AdminShell><div className="h-60 animate-pulse rounded-lg bg-white/5" /></AdminShell>;
   return <AdminShell>{authenticated ? <Dashboard onLogout={() => setAuthenticated(false)} /> : <Login onLogin={() => setAuthenticated(true)} />}</AdminShell>;
+}
+
+function StaticAdminNotice() {
+  return (
+    <AdminShell>
+      <div className="glass mx-auto mt-20 max-w-2xl rounded-lg p-6">
+        <p className="font-mono text-xs uppercase tracking-[.22em] text-emerald">GitHub Pages</p>
+        <h1 className="mt-3 text-4xl font-black">Admin requires a backend server</h1>
+        <p className="mt-4 text-slate-300">
+          This public GitHub Pages version is static, so it can show the portfolio but cannot run secure login,
+          uploads, saved contact messages, or content editing.
+        </p>
+        <div className="mt-6 rounded-md border border-white/10 bg-white/[.035] p-4 text-sm text-slate-300">
+          <p className="font-semibold text-white">Use admin locally:</p>
+          <pre className="mt-3 overflow-x-auto rounded bg-ink p-3 font-mono text-xs">npm run build{"\n"}$env:PORT='3100'; npm start</pre>
+          <p className="mt-3">Then open <span className="font-mono text-cyan">http://localhost:3100/admin</span>.</p>
+        </div>
+        <p className="mt-5 text-sm text-slate-400">
+          To make admin work online, deploy the Node server and PostgreSQL database on a full-stack host.
+        </p>
+      </div>
+    </AdminShell>
+  );
 }
 
 function AdminShell({ children }: { children: React.ReactNode }) {

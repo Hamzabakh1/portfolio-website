@@ -81,7 +81,16 @@ GitHub Pages hosting is static-only:
 - The public portfolio works.
 - Routing uses hash URLs in Pages mode, for example `/#/projects`.
 - Contact falls back to opening the visitor's email app.
-- Admin, local JSON storage, uploads, and server-backed contact messages require the Node server on your PC or another backend host.
+- Admin, local JSON storage, uploads, and server-backed contact messages require the Node server on your PC or another backend host. The hosted `/admin` route shows an explanation instead of attempting login.
+
+To use admin locally:
+
+```bash
+npm run build
+npm start
+```
+
+Then open `http://localhost:3000/admin`, or set `PORT=3100` and open `http://localhost:3100/admin`.
 
 After pushing to GitHub:
 
