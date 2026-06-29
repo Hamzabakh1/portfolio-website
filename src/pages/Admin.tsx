@@ -18,23 +18,80 @@ export function AdminPage() {
 }
 
 function StaticAdminNotice() {
+  const [token, setToken] = useState("");
+  const [raw, setRaw] = useState("");
+  const [sha, setSha] = useState("");
+  const [status, setStatus] = useState("Paste a fine-grained GitHub token with Contents read/write access to this repo.");
+  const owner = "Hamzabakh1";
+  const repo = "portfolio-website";
+  const branch = "main";
+  const path = "public/site-content.json";
+
+  async function githubRequest(url: string, options: RequestInit = {}) {
+    const response = await fetch(url, {
+      ...options,
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${token}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+        ...(options.headers ?? {})
+      }
+    });
+    if (!response.ok) throw new Error((await response.json().catch(() => ({}))).message ?? "GitHub request failed");
+    return response.json();
+  }
+
+  async function loadContent() {
+    try {
+      setStatus("Loading content from GitHub...");
+      const data = await githubRequest(`https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`);
+      setSha(data.sha);
+      setRaw(decodeURIComponent(escape(atob(data.content.replace(/\n/g, "")))));
+      setStatus("Content loaded. Edit carefully, then save.");
+    } catch (err) {
+      setStatus(err instanceof Error ? err.message : "Could not load content");
+    }
+  }
+
+  async function saveContent() {
+    try {
+      JSON.parse(raw);
+      setStatus("Committing content to GitHub...");
+      const encoded = btoa(unescape(encodeURIComponent(raw)));
+      const data = await githubRequest(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: "Update portfolio content from admin",
+          content: encoded,
+          sha,
+          branch
+        })
+      });
+      setSha(data.content.sha);
+      setStatus("Saved. GitHub Actions will redeploy the site in a minute or two.");
+    } catch (err) {
+      setStatus(err instanceof Error ? err.message : "Could not save content");
+    }
+  }
+
   return (
     <AdminShell>
-      <div className="glass mx-auto mt-20 max-w-2xl rounded-lg p-6">
+      <div className="glass mx-auto mt-10 max-w-5xl rounded-lg p-6">
         <p className="font-mono text-xs uppercase tracking-[.22em] text-emerald">GitHub Pages</p>
-        <h1 className="mt-3 text-4xl font-black">Admin requires a backend server</h1>
+        <h1 className="mt-3 text-4xl font-black">GitHub CMS Admin</h1>
         <p className="mt-4 text-slate-300">
-          This public GitHub Pages version is static, so it can show the portfolio but cannot run secure login,
-          uploads, saved contact messages, or content editing.
+          This static admin edits <span className="font-mono text-cyan">public/site-content.json</span> directly in your GitHub repo.
+          It does not store your token. Create a fine-grained token for this repository with Contents read/write access.
         </p>
-        <div className="mt-6 rounded-md border border-white/10 bg-white/[.035] p-4 text-sm text-slate-300">
-          <p className="font-semibold text-white">Use admin locally:</p>
-          <pre className="mt-3 overflow-x-auto rounded bg-ink p-3 font-mono text-xs">npm run build{"\n"}$env:PORT='3100'; npm start</pre>
-          <p className="mt-3">Then open <span className="font-mono text-cyan">http://localhost:3100/admin</span>.</p>
+        <div className="mt-6 grid gap-3 md:grid-cols-[1fr_auto_auto]">
+          <input value={token} onChange={(event) => setToken(event.target.value)} type="password" placeholder="GitHub fine-grained token" className="rounded-md border border-white/12 bg-ink px-3 py-3" />
+          <button onClick={loadContent} disabled={!token} className="rounded-md border border-white/12 px-4 py-3 disabled:opacity-50">Load</button>
+          <button onClick={saveContent} disabled={!token || !raw || !sha} className="rounded-md bg-emerald px-4 py-3 font-semibold text-ink disabled:opacity-50">Save</button>
         </div>
-        <p className="mt-5 text-sm text-slate-400">
-          To make admin work online, deploy the Node server and PostgreSQL database on a full-stack host.
-        </p>
+        <p className="mt-3 text-sm text-amber">{status}</p>
+        <textarea value={raw} onChange={(event) => setRaw(event.target.value)} rows={28} className="mt-5 w-full rounded-md border border-white/12 bg-ink p-3 font-mono text-sm" placeholder="Click Load to fetch site-content.json" />
+        <p className="mt-4 text-sm text-slate-400">For uploads on GitHub Pages, add images in the repo under <span className="font-mono text-cyan">public/uploads</span> or use external image URLs.</p>
       </div>
     </AdminShell>
   );

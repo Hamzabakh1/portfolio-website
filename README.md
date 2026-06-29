@@ -76,12 +76,15 @@ The production server serves `dist/public` and exposes the Express API from the 
 
 This project includes `.github/workflows/pages.yml` for GitHub Pages.
 
-GitHub Pages hosting is static-only:
+GitHub Pages hosting is static with a GitHub-backed CMS mode:
 
 - The public portfolio works.
 - Routing uses hash URLs in Pages mode, for example `/#/projects`.
 - Contact falls back to opening the visitor's email app.
-- Admin, local JSON storage, uploads, and server-backed contact messages require the Node server on your PC or another backend host. The hosted `/admin` route shows an explanation instead of attempting login.
+- The hosted `/admin` route can edit `public/site-content.json` by committing through the GitHub API.
+- For hosted admin, create a fine-grained GitHub token for this repo with Contents read/write access and paste it into `/admin` each session.
+- Browser uploads are not available on GitHub Pages; add images to `public/uploads` through GitHub or use external image URLs.
+- Server-backed contact messages still require the Node server on your PC or another backend host.
 
 To use admin locally:
 
