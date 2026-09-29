@@ -6,3 +6,4 @@ dist-server
 *.log
 coverage
 .local-data
+.sites-artifacts
