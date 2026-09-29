@@ -5,18 +5,18 @@ const now = new Date();
 export const staticSettings: SiteSettings = {
   profile: {
     name: "HAMZA BAKH",
-    headline: "Data Engineer | Data Analyst | BI Developer | Full-Stack Builder",
+    headline: "Data Engineer & BI | Finance & Operations Analytics | SQL, Python, Snowflake, dbt, Azure & Power BI",
     location: "Morocco",
-    email: "hello@example.com",
-    linkedin: "#",
-    github: "#",
+    email: "hh6118915@gmail.com",
+    linkedin: "https://www.linkedin.com/in/hamza-bakh/",
+    github: "https://github.com/Hamzabakh1",
     cvUrl: "/Hamza-Bakh-CV.pdf",
     avatarUrl: ""
   },
   home: {
     badge: "Open to Data & BI Opportunities",
     heroTitle: "Building reliable data systems that turn complexity into decisions.",
-    heroText: "Data Engineer and BI Builder focused on scalable pipelines, cloud data warehouses, analytics automation, and business intelligence solutions.",
+    heroText: "I turn operational data into trusted finance and operations analytics — from reliable pipelines and governed models to dashboards people can use to make decisions.",
     primaryCta: "Explore My Work",
     secondaryCta: "Contact Me",
     trustStrip: ["Data Engineering", "BI & Analytics", "ETL / ELT Pipelines", "Snowflake & SQL", "Power BI & Metabase", "Python Automation", "Full-Stack Development"],
@@ -105,13 +105,13 @@ export const staticContent: Content = {
   experiences: [
     {
       id: 1,
-      company: "Agridata Consulting",
-      role: "Data Engineering / BI Projects",
+      company: "AGRUPA MARCA",
+      role: "Data Analyst | Financial Services Sector",
       location: "Morocco",
-      startDate: "2024",
-      endDate: "Present",
-      description: "Data pipelines, Snowflake warehouse integration, Metabase analytics, ERP reporting, OCR automation, and dashboard development.",
-      technologies: ["Snowflake", "SQL", "Python", "Metabase", "dbt"],
+      startDate: "Dec 2025",
+      endDate: "May 2026",
+      description: "Built analytical datasets and Power BI dashboards for financial and operational reporting, with SQL optimization, VBA automation and data-quality controls.",
+      technologies: ["Power BI", "SQL", "Excel", "VBA", "Data Modeling"],
       displayOrder: 1
     }
   ]

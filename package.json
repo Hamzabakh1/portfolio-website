@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server/index.ts",
-    "build": "vite build && tsc -p tsconfig.server.json",
+    "build": "vite build --configLoader runner && tsc -p tsconfig.server.json",
     "start": "node dist-server/server/index.js",
     "check": "tsc --noEmit",
     "db:generate": "drizzle-kit generate",

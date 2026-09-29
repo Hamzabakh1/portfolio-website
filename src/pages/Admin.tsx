@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LogOut, Plus, RefreshCcw, Save, Trash2 } from "lucide-react";
+import { LogOut, Plus, RefreshCcw, Save, Trash2, Moon, Sun, ArrowLeft } from "lucide-react";
 import type { Article, ContactMessage, Project } from "@shared/schema";
 import { api, uploadFile, type AdminSummary, type SiteSettings } from "@/lib/api";
 import { slugify } from "@/lib/utils";
@@ -98,7 +98,13 @@ function StaticAdminNotice() {
 }
 
 function AdminShell({ children }: { children: React.ReactNode }) {
-  return <div className="min-h-screen bg-ink px-4 py-8 text-slate-100"><div className="mx-auto max-w-7xl">{children}</div></div>;
+  const [theme, setTheme] = useState<"dark" | "light">(() => (localStorage.getItem("portfolio-theme") as "dark" | "light") || "dark");
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
+  return <div className="admin-shell min-h-screen bg-ink px-4 py-8 text-slate-100"><div className="mx-auto max-w-7xl"><div className="mb-8 flex items-center justify-between"><a href="/" className="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-white"><ArrowLeft size={16} />Back to portfolio</a><button className="icon-button" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} aria-label="Toggle theme">{theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}</button></div>{children}</div></div>;
 }
 
 function Login({ onLogin }: { onLogin: () => void }) {

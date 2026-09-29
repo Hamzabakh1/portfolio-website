@@ -1,14 +1,17 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   base: process.env.VITE_GITHUB_PAGES === "true" ? "./" : "/",
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
-      "@shared": path.resolve(__dirname, "shared")
+      "@": path.resolve(projectRoot, "src"),
+      "@shared": path.resolve(projectRoot, "shared")
     }
   },
   server: {

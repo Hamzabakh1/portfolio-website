@@ -3,6 +3,7 @@ import path from "node:path";
 import type { Article, ContactMessage, Experience, Project, Skill } from "../shared/schema.js";
 
 type LocalStore = {
+  profileSourceVersion?: number;
   projects: Project[];
   articles: Article[];
   skills: Skill[];
@@ -78,16 +79,16 @@ const baseProjects: Project[] = [
   },
   {
     id: 2,
-    title: "Business Intelligence Dashboards for ERP Operations",
-    slug: "erp-operations-bi-dashboards",
+    title: "Quality Control Analytics & Reporting System",
+    slug: "quality-control-analytics-reporting-system",
     category: "Business Intelligence",
-    shortDescription: "Dashboards for HR, production, inventory, energy consumption, and executive KPI monitoring using ERP data.",
-    fullDescription: "Built a BI portfolio pattern for transforming ERP data into operational dashboards and executive KPI monitoring.",
-    challenge: "Teams needed consistent, permission-aware reporting across ERP domains without relying on manual spreadsheet updates.",
-    solution: "Modeled KPIs, applied DAX and Power Query transformations, and designed dashboards with row-level security concepts.",
-    results: "Improved reporting clarity through reusable models, validation checks, and decision-focused dashboard layouts.",
-    architecture: "ERP data flows through SQL Server models, Power Query transformations, DAX measures, and Power BI reporting layers.",
-    technologies: ["Power BI", "DAX", "Power Query", "SQL Server", "RLS", "ERP Data"],
+    shortDescription: "Quality-control dashboards for rejection rate, defect rate, grade distribution, conformity, export readiness and trends.",
+    fullDescription: "A reporting system for turning production, harvest, packing and quality-control records into structured operational insights.",
+    challenge: "Quality teams needed consistent visibility across batches, farms, crops, packing lines and client destinations.",
+    solution: "Structured quality-control datasets and Power BI views with validation rules and a KPI framework connecting quality results to operational impact.",
+    results: "Improved visibility over quality issues, rejection causes, packing performance and export-readiness signals.",
+    architecture: "Production → Harvest → Packing Station → Quality Control → Stock → Export Readiness → Client Delivery.",
+    technologies: ["SQL", "Excel", "Power BI", "Data Modeling", "Data Validation", "KPI Reporting"],
     featured: true,
     published: true,
     imageUrl: "",
@@ -96,16 +97,16 @@ const baseProjects: Project[] = [
   },
   {
     id: 3,
-    title: "Paper Questionnaire Automation Pipeline",
-    slug: "paper-questionnaire-automation-pipeline",
-    category: "Automation",
-    shortDescription: "Automated paper questionnaires into structured datasets using OCR/ICR, Python processing, SQL storage, and BI reporting.",
-    fullDescription: "A practical pipeline for turning paper-based collection into searchable, validated, analytics-ready datasets.",
-    challenge: "Manual transcription slowed analysis and introduced quality risks into downstream reporting.",
-    solution: "Combined OCR/ICR capture, Python validation, SQL storage, and dashboard-ready exports.",
-    results: "Reduced repetitive processing effort and created a clearer audit path from source forms to reporting outputs.",
-    architecture: "Scanned forms move through OCR/ICR extraction, Python cleaning, validation queues, SQL tables, and BI dashboards.",
-    technologies: ["Python", "Pandas", "OCR/ICR", "Tesseract", "SQL", "Power BI"],
+    title: "Agricultural BI Dashboard Automation",
+    slug: "agricultural-bi-dashboard-automation",
+    category: "Business Intelligence",
+    shortDescription: "Automated agricultural data preparation from Excel and surveys through Python cleaning, SQL Server and Power BI.",
+    fullDescription: "A practical workflow that replaced manual spreadsheet preparation with structured validation, reusable transformations and interactive BI outputs.",
+    challenge: "Agricultural reporting depended on scattered Excel workflows and repetitive manual corrections.",
+    solution: "Built Python/Pandas preparation scripts, SQL Server workflows and Power BI dashboards for operational KPIs.",
+    results: "Improved reporting accuracy and accelerated access to agricultural performance insights.",
+    architecture: "Excel / survey data → Python cleaning → SQL Server → Power BI.",
+    technologies: ["SQL Server", "Python", "Pandas", "NumPy", "Power BI", "Excel"],
     featured: true,
     published: true,
     imageUrl: "",
@@ -114,16 +115,16 @@ const baseProjects: Project[] = [
   },
   {
     id: 4,
-    title: "Data Quality Monitoring Layer for BI Reporting",
-    slug: "data-quality-monitoring-layer-bi-reporting",
-    category: "Analytics Engineering",
-    shortDescription: "Validation rules, freshness checks, anomaly flags, and reporting controls before dashboard publication.",
-    fullDescription: "A control layer that helps prevent bad data from reaching executive dashboards by checking freshness, completeness, duplicates, and business rules.",
-    challenge: "Dashboards can look polished while hiding stale data, missing records, or KPI calculation drift.",
-    solution: "Designed a lightweight validation layer with rule definitions, issue severity, source ownership, and dashboard-readiness checks.",
-    results: "Created a stronger path from raw data to trusted reporting without claiming unverified numerical impact.",
-    architecture: "Source tables feed validation checks, issue logs, model tests, semantic model gates, and dashboard release notes.",
-    technologies: ["SQL", "Python", "dbt tests", "PostgreSQL", "Power BI", "Metabase"],
+    title: "OCR-Based Survey Data Automation",
+    slug: "ocr-based-survey-data-automation",
+    category: "Automation",
+    shortDescription: "OCR-assisted survey extraction into clean datasets for Excel, SQL and BI reporting workflows.",
+    fullDescription: "An automation workflow that converts paper and semi-structured survey records into validated, analysis-ready data.",
+    challenge: "Manual survey transcription created repetitive work and inconsistencies in reporting datasets.",
+    solution: "Combined OCR/Tesseract extraction, Python/Pandas cleaning, validation rules and standardized outputs.",
+    results: "Reduced manual processing effort and created a reusable foundation for paper-to-digital reporting.",
+    architecture: "Paper / scanned forms → OCR extraction → Python cleaning → Excel / SQL outputs → BI reporting.",
+    technologies: ["Python", "Pandas", "OCR", "Tesseract", "Excel", "SQL"],
     featured: false,
     published: true,
     imageUrl: "",
@@ -132,16 +133,16 @@ const baseProjects: Project[] = [
   },
   {
     id: 5,
-    title: "Precision Agriculture Data Fusion Concept",
-    slug: "precision-agriculture-data-fusion-concept",
-    category: "Research & AI",
-    shortDescription: "A research-oriented architecture for combining field observations, sensor signals, images, and analytics outputs.",
-    fullDescription: "A future-facing concept for agriculture analytics that structures multimodal inputs into analysis-ready layers for monitoring and decision support.",
-    challenge: "Agriculture data can come from paper forms, sensors, images, weather records, and field observations with different quality levels.",
-    solution: "Proposed ingestion, validation, feature storage, model experimentation, and BI layers for transparent research workflows.",
-    results: "Positioned the project as an editable research direction without inventing claims or production results.",
-    architecture: "Forms, IoT, imagery, and weather inputs flow into validation, feature engineering, experiment tracking, warehouse tables, and dashboards.",
-    technologies: ["Python", "Pandas", "Scikit-learn", "PostgreSQL", "IoT Data", "Power BI"],
+    title: "Graduate Tracking Management System",
+    slug: "graduate-tracking-management-system",
+    category: "Software & Data Systems",
+    shortDescription: "Desktop information system for graduate records, administrative follow-up, SQL reporting and Crystal Reports.",
+    fullDescription: "A database-driven workflow that centralized student and graduate tracking data previously scattered across spreadsheets.",
+    challenge: "Administrative follow-up required a consistent system for students, promotions, internships and insertion records.",
+    solution: "Built VB6 modules, SQL database structures, validation rules and Crystal Reports outputs.",
+    results: "Contributed to process digitalization and improved consistency through structured storage and reporting logic.",
+    architecture: "VB6 desktop application → SQL database → Crystal Reports.",
+    technologies: ["Visual Basic 6", "SQL", "SQL Server", "Crystal Reports", "Database Design"],
     featured: false,
     published: true,
     imageUrl: "",
@@ -187,54 +188,76 @@ const baseSkills: Skill[] = [
 const baseExperiences: Experience[] = [
   {
     id: 1,
-    company: "Agridata Consulting",
-    role: "Data Engineering / BI Projects",
-    location: "Morocco",
-    startDate: "2024",
-    endDate: "Present",
-    description: "Data pipelines, Snowflake warehouse integration, Metabase analytics, ERP reporting, OCR automation, and dashboard development.",
-    technologies: ["Snowflake", "SQL", "Python", "Metabase", "dbt"],
+    company: "AGRUPA MARCA",
+    role: "Data Analyst | Financial Services Sector",
+    location: "Hybrid",
+    startDate: "Dec 2025",
+    endDate: "May 2026",
+    description: "Built analytical datasets and Power BI dashboards for financial and operational reporting, including revenue, expense, budget and KPI monitoring. Improved reporting reliability with SQL optimization, VBA automation and data-quality controls.",
+    technologies: ["Power BI", "SQL", "Excel", "VBA", "Data Modeling", "Financial Reporting"],
     displayOrder: 1
   },
   {
     id: 2,
-    company: "ITPMT Tan-Tan",
-    role: "Application Development Internship",
-    location: "Tan-Tan, Morocco",
-    startDate: "2023",
-    endDate: "2023",
-    description: "Developed a graduate tracking application with SQL Server database design, VB6 development, and Crystal Reports.",
-    technologies: ["SQL Server", "VB6", "Crystal Reports"],
+    company: "AGRIDATA CONSULTING",
+    role: "Data Engineer",
+    location: "Agadir, Morocco · On-site",
+    startDate: "Feb 2025",
+    endDate: "Jul 2025",
+    description: "Designed a multi-tenant embedded-BI platform connecting SQL Server to Snowflake through Python and Prefect, with dbt models and tenant-specific Metabase dashboards.",
+    technologies: ["Snowflake", "SQL Server", "Python", "Prefect", "dbt", "Metabase", "Docker"],
     displayOrder: 2
   },
   {
     id: 3,
-    company: "CodSoft",
-    role: "Data Science Projects",
-    location: "Remote",
-    startDate: "2023",
-    endDate: "2023",
-    description: "Completed practical projects in sales analysis, fraud detection, Titanic classification, exploratory analysis, and predictive modeling foundations.",
-    technologies: ["Python", "Scikit-learn", "Pandas"],
+    company: "AGRIDATA CONSULTING",
+    role: "Data Analyst",
+    location: "Agadir, Morocco · Hybrid",
+    startDate: "Jun 2024",
+    endDate: "Sep 2024",
+    description: "Automated agricultural data preparation and reporting workflows from Excel and survey files through Python cleaning, SQL Server storage and interactive Power BI dashboards.",
+    technologies: ["Python", "Pandas", "NumPy", "SQL Server", "Power BI", "Excel"],
     displayOrder: 3
+  },
+  {
+    id: 4,
+    company: "CodSoft",
+    role: "Data Scientist",
+    location: "Remote",
+    startDate: "Jan 2024",
+    endDate: "Feb 2024",
+    description: "Completed applied machine-learning projects in classification and regression, including Titanic survival, Iris classification, sales prediction and credit-card fraud detection.",
+    technologies: ["Python", "Pandas", "NumPy", "Scikit-learn", "Machine Learning"],
+    displayOrder: 4
+  },
+  {
+    id: 5,
+    company: "Institut Supérieur des Pêches Maritimes",
+    role: "Software Developer — Graduate Tracking System",
+    location: "Morocco",
+    startDate: "Jun 2023",
+    endDate: "Aug 2023",
+    description: "Developed a desktop information system for graduate tracking, administrative follow-up and SQL reporting, replacing scattered Excel processes with a central database workflow.",
+    technologies: ["Visual Basic 6", "SQL Server", "Crystal Reports", "Database Design"],
+    displayOrder: 5
   }
 ];
 
 const baseSiteSettings: SiteSettings = {
   profile: {
     name: "HAMZA BAKH",
-    headline: "Data Engineer | Data Analyst | BI Developer | Full-Stack Builder",
+    headline: "Data Engineer & BI | Finance & Operations Analytics | SQL, Python, Snowflake, dbt, Azure & Power BI",
     location: "Morocco",
-    email: "hello@example.com",
-    linkedin: "#",
-    github: "#",
+    email: "hh6118915@gmail.com",
+    linkedin: "https://www.linkedin.com/in/hamza-bakh/",
+    github: "https://github.com/Hamzabakh1",
     cvUrl: "/Hamza-Bakh-CV.pdf",
     avatarUrl: ""
   },
   home: {
     badge: "Open to Data & BI Opportunities",
     heroTitle: "Building reliable data systems that turn complexity into decisions.",
-    heroText: "Data Engineer and BI Builder focused on scalable pipelines, cloud data warehouses, analytics automation, and business intelligence solutions.",
+    heroText: "I turn operational data into trusted finance and operations analytics — from reliable pipelines and governed models to dashboards people can use to make decisions.",
     primaryCta: "Explore My Work",
     secondaryCta: "Contact Me",
     trustStrip: ["Data Engineering", "BI & Analytics", "ETL / ELT Pipelines", "Snowflake & SQL", "Power BI & Metabase", "Python Automation", "Full-Stack Development"],
@@ -275,6 +298,7 @@ const baseSiteSettings: SiteSettings = {
 
 function initialStore(): LocalStore {
   return {
+    profileSourceVersion: 3,
     projects: baseProjects,
     articles: baseArticles,
     skills: baseSkills,
@@ -288,7 +312,22 @@ function initialStore(): LocalStore {
 async function readStore(): Promise<LocalStore> {
   try {
     const raw = await readFile(dataFile, "utf8");
-    return JSON.parse(raw) as LocalStore;
+    const store = JSON.parse(raw) as LocalStore;
+    if ((store.profileSourceVersion ?? 0) < 3) {
+      store.profileSourceVersion = 3;
+      store.experiences = baseExperiences;
+      store.projects = baseProjects;
+      store.siteSettings = {
+        ...store.siteSettings,
+        profile: baseSiteSettings.profile,
+        home: { ...store.siteSettings?.home, ...baseSiteSettings.home },
+        about: baseSiteSettings.about,
+        contact: baseSiteSettings.contact,
+        codeSnippets: store.siteSettings?.codeSnippets?.length ? store.siteSettings.codeSnippets : baseSiteSettings.codeSnippets
+      };
+      await writeStore(store);
+    }
+    return store;
   } catch {
     const store = initialStore();
     await writeStore(store);

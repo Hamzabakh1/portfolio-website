@@ -13,6 +13,8 @@ const ProjectDetail = lazy(() => import("@/pages/Projects").then((m) => ({ defau
 const ProjectsPage = lazy(() => import("@/pages/Projects").then((m) => ({ default: m.ProjectsPage })));
 const ResumePage = lazy(() => import("@/pages/Resume").then((m) => ({ default: m.ResumePage })));
 const StaticPage = lazy(() => import("@/pages/Static").then((m) => ({ default: m.StaticPage })));
+const DemosPage = lazy(() => import("@/pages/Demos").then((m) => ({ default: m.DemosPage })));
+const DemoPage = lazy(() => import("@/pages/Demos").then((m) => ({ default: m.DemoPage })));
 
 export default function App() {
   return (
@@ -23,11 +25,16 @@ export default function App() {
           <Route path="/about" element={<StaticPage type="about" />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
+          <Route path="/demos" element={<DemosPage />} />
+          <Route path="/demos/:slug" element={<DemoPage />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/insights/:slug" element={<ArticleDetail />} />
+          <Route path="/articles" element={<InsightsPage />} />
+          <Route path="/articles/:slug" element={<ArticleDetail />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/resume" element={<ResumePage />} />
+          <Route path="/cv" element={<ResumePage />} />
           <Route path="/privacy" element={<StaticPage type="privacy" />} />
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<Navigate to="/404" replace />} />

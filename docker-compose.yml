@@ -1,0 +1,19 @@
+services:
+  portfolio:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      SESSION_SECRET: ${SESSION_SECRET:-local-iron-core-session-secret}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@local.test}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change-me-local-admin}
+    volumes:
+      - portfolio_data:/app/.local-data
+      - portfolio_uploads:/app/public/uploads
+    restart: unless-stopped
+
+volumes:
+  portfolio_data:
+  portfolio_uploads:

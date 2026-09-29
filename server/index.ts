@@ -319,11 +319,11 @@ app.get("/sitemap.xml", asyncHandler(async (_req, res) => {
         projects: await db!.select({ slug: projects.slug }).from(projects).where(eq(projects.published, true)),
         articles: await db!.select({ slug: articles.slug }).from(articles).where(eq(articles.published, true))
       };
-  const staticRoutes = ["", "/about", "/projects", "/experience", "/insights", "/contact", "/resume", "/privacy"];
+  const staticRoutes = ["", "/about", "/projects", "/experience", "/articles", "/contact", "/resume", "/cv", "/privacy"];
   const urls = [
     ...staticRoutes.map((route) => `${publicSiteUrl}${route}`),
     ...projectRows.map((p) => `${publicSiteUrl}/projects/${p.slug}`),
-    ...articleRows.map((a) => `${publicSiteUrl}/insights/${a.slug}`)
+    ...articleRows.map((a) => `${publicSiteUrl}/articles/${a.slug}`)
   ];
   res.type("application/xml").send(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((url) => `<url><loc>${url}</loc></url>`).join("")}</urlset>`);
 }));
