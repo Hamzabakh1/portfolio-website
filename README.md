@@ -1,73 +1,77 @@
-# Hamza Bakh — engineering portfolio
+# Hamza Bakh — Data Engineering Portfolio
 
-React/Vite/TypeScript frontend with an Express/TypeScript backend. The portfolio presents data-engineering case studies and five deterministic browser demonstrations. Existing architecture, admin surface and local fallback storage are preserved.
+A bilingual portfolio for data engineering, analytics engineering and business intelligence work. It combines a cinematic presentation layer with practical case studies, interactive pipeline demonstrations and a small content-admin surface.
 
-## Portfolio architecture
+## Highlights
 
-The information architecture follows the portfolio map in the product brief:
-
-```text
-Home → hero, value proposition, primary CTAs
-About → presentation, experience, tools & skills
-Projects → featured work, labs, case studies
-Articles → blog posts, research notes, tutorials
-Contact → message, collaboration, work opportunities
-Resume / CV → one-page CV, PDF download, credentials
-Profiles → GitHub, LinkedIn, public source code
-```
-
-Every project detail page now exposes the same case-study spine: **Problem → Solution → Architecture → Tech Stack → Live Demo → Results**. The home page includes a clickable architecture map so visitors can reach each branch without guessing where content lives.
+- Dark and light themes with English and French translations.
+- Case studies covering pipeline design, data quality, BI delivery and automation.
+- Interactive demos with synthetic data, pipeline stages, logs, output tables and execution history.
+- Responsive pages for projects, experience, articles, CV and contact.
+- Express API with a local JSON fallback and optional PostgreSQL storage.
 
 ## Run locally
 
-Install the existing dependencies, then:
+Install dependencies, then start the development server:
 
-~~~sh
+```sh
+npm install
 npm run dev
-~~~
+```
 
-Open http://localhost:3000. For a production build:
+Open <http://localhost:3000>.
 
-~~~sh
+For a production build:
+
+```sh
 npm run check
 npm run build
 npm start
-~~~
+```
 
-The production build uses Vite's runner config loader so it also works from the managed Windows workspace used by Codex. A Docker Compose path is included for a one-command local launch:
+Docker Compose is also available:
 
-~~~sh
+```sh
 docker compose up --build
-~~~
+```
 
-Then open [http://localhost:3000](http://localhost:3000). The same site is also runnable without Docker with `npm start` after `npm run build`.
+## Main routes
 
-The canonical content routes are `/`, `/about`, `/projects`, `/experience`, `/demos`, `/articles`, `/contact`, `/resume`, and `/admin`. Compatibility aliases remain available at `/insights` and `/cv`.
-
-The public navigation exposes the live labs and the protected Admin entry. In local development the default admin credentials are `admin@local.test` / `change-me-local-admin`; set `ADMIN_EMAIL` and `ADMIN_PASSWORD` before any shared or production deployment.
-
-If PostgreSQL is unavailable, the Express server uses .local-data/portfolio.json and the public site remains usable. PostgreSQL is selected when DATABASE_URL is configured. Copy .env.example to .env for local settings; never commit secrets.
+- `/` — home and featured work
+- `/about` — profile and working principles
+- `/projects` — projects and case studies
+- `/experience` — roles, education and certifications
+- `/demos` — interactive engineering demonstrations
+- `/articles` — technical writing
+- `/contact` — contact form and collaboration
+- `/resume` — CV and downloadable resume
+- `/admin` — protected content management
 
 ## Demonstrations
 
-/demos is the interactive showcase. DemoShell runs repeatable, client-side logic over synthetic data:
+The demo area uses deterministic synthetic datasets so every run is reproducible:
 
-- Multi-tenant analytics: switch Atlas Retail, Nova Foods and GreenFarm Export to inspect isolation, revenue, margin and order metrics.
-- Data quality observability: switch clean/moderate/severe scenarios and inspect rule-level warnings and release gates.
-- Automated validation: inspect schema, type, null and duplicate checks without persisting uploaded data.
-- Azure real-estate platform: follow the simulated Blob → ADF → Azure SQL → Power BI lifecycle and raw/clean/curated counts.
-- Finance planning: compare synthetic budget, actual, variance and forecast by department.
+- Multi-tenant analytics with revenue, margin and order metrics.
+- Data quality observability with rule-level checks and release gates.
+- Schema, type, null and duplicate validation.
+- A simulated cloud real-estate pipeline from ingestion to BI output.
+- Finance planning with budget, actual, variance and forecast views.
 
-Infrastructure services are labelled as simulations. Private projects show that source code is private while still exposing safe synthetic demos. No credentials, client information or production data are included.
+Each demo clearly labels simulated infrastructure and keeps data in the browser.
 
-## Extending a demo
+## Configuration
 
-Add project metadata to src/data/projectRegistry.ts, deterministic calculations to src/lib/demoEngine.ts, and the route is automatically available at /demos/:slug. DemoShell exposes controls, explicit pipeline states, output tables, logs and an explanation panel. Keep the same input deterministic and label any simulated infrastructure honestly.
+Copy `.env.example` to `.env` for local settings. Never commit secrets. PostgreSQL is used when `DATABASE_URL` is configured; otherwise the server stores local development data under `.local-data`.
 
-## Security and privacy
+Before any shared deployment, set `SESSION_SECRET`, `ADMIN_EMAIL`, `ADMIN_PASSWORD` and `PUBLIC_SITE_URL` through the hosting environment.
 
-The upload endpoint accepts images for the existing admin surface and is size-limited. Demo data stays in memory. Contact writes are rate-limited and protected by CSRF tokens. Set SESSION_SECRET, ADMIN_EMAIL, ADMIN_PASSWORD, PUBLIC_SITE_URL, and database/email variables through the environment, never in client code.
+## Project structure
 
-## Scope notes
+```text
+src/          React pages, components and translations
+server/       Express API and local persistence
+shared/       Shared types and database schema
+public/       Brand assets and static content
+```
 
-The portfolio is intentionally not migrated to Next.js and does not require Docker for visitors. Real Snowflake, Azure, Power BI and private repository access are not executed from the public site; those workflows are represented by deterministic simulations or case-study content.
+The portfolio is intentionally built with Vite, React and TypeScript and can run with or without Docker.

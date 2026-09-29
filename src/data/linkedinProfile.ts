@@ -5,7 +5,7 @@ export const linkedinProfile = {
   followers: "4,259",
   connections: "500+",
   education: "École Polytechnique d'Agadir",
-  degree: "Engineer’s Degree – Computer Engineering (Big Data & AI)",
+  degree: "Engineer’s Degree – Computer Engineering",
   educationDates: "Sep 2020 – Jul 2025",
   openTo: "Recruiters only · United Kingdom +4 more · On-site · Hybrid · Remote",
   certifications: [
