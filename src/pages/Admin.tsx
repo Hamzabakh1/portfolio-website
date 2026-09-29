@@ -2,18 +2,27 @@ import { useEffect, useState } from "react";
 import { LogOut, Plus, RefreshCcw, Save, Trash2, Moon, Sun, ArrowLeft } from "lucide-react";
 import type { Article, ContactMessage, Project } from "@shared/schema";
 import { api, uploadFile, type AdminSummary, type SiteSettings } from "@/lib/api";
+import { isStaticHostedSite } from "@/lib/runtime";
 import { slugify } from "@/lib/utils";
 
 type Mode = "studio" | "projects" | "articles" | "skills" | "experience" | "messages" | "assets";
 
 export function AdminPage() {
-  if (import.meta.env.VITE_GITHUB_PAGES === "true") return <StaticAdminNotice />;
+  const [staticMode, setStaticMode] = useState(() => isStaticHostedSite());
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    api<{ authenticated: boolean }>("/api/admin/me").then((data) => setAuthenticated(data.authenticated)).finally(() => setLoading(false));
+    if (staticMode) {
+      setLoading(false);
+      return;
+    }
+    api<{ authenticated: boolean }>("/api/admin/me")
+      .then((data) => setAuthenticated(data.authenticated))
+      .catch(() => setStaticMode(true))
+      .finally(() => setLoading(false));
   }, []);
   if (loading) return <AdminShell><div className="h-60 animate-pulse rounded-lg bg-white/5" /></AdminShell>;
+  if (staticMode) return <StaticAdminNotice />;
   return <AdminShell>{authenticated ? <Dashboard onLogout={() => setAuthenticated(false)} /> : <Login onLogin={() => setAuthenticated(true)} />}</AdminShell>;
 }
 
@@ -78,11 +87,11 @@ function StaticAdminNotice() {
   return (
     <AdminShell>
       <div className="glass mx-auto mt-10 max-w-5xl rounded-lg p-6">
-        <p className="font-mono text-xs uppercase tracking-[.22em] text-emerald">GitHub Pages</p>
-        <h1 className="mt-3 text-4xl font-black">GitHub CMS Admin</h1>
+        <p className="font-mono text-xs uppercase tracking-[.22em] text-emerald">Online portfolio</p>
+        <h1 className="mt-3 text-4xl font-black">Content Studio</h1>
         <p className="mt-4 text-slate-300">
-          This static admin edits <span className="font-mono text-cyan">public/site-content.json</span> directly in your GitHub repo.
-          It does not store your token. Create a fine-grained token for this repository with Contents read/write access.
+          This hosted admin edits <span className="font-mono text-cyan">public/site-content.json</span> directly in your GitHub repo.
+          Use a fine-grained GitHub token for this repository with Contents read/write access. The token stays in this browser session only.
         </p>
         <div className="mt-6 grid gap-3 md:grid-cols-[1fr_auto_auto]">
           <input value={token} onChange={(event) => setToken(event.target.value)} type="password" placeholder="GitHub fine-grained token" className="rounded-md border border-white/12 bg-ink px-3 py-3" />

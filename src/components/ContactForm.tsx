@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Send } from "lucide-react";
 import { contactSchema } from "@shared/schema";
 import { api } from "@/lib/api";
+import { isStaticHostedSite } from "@/lib/runtime";
 import { useLanguage } from "@/providers/language";
 import type { z } from "zod";
 
@@ -19,9 +20,9 @@ export function ContactForm() {
       setStatus("success");
       reset();
     } catch {
-      if (import.meta.env.VITE_GITHUB_PAGES === "true") {
+      if (isStaticHostedSite()) {
         const body = encodeURIComponent(`${values.message}\n\nFrom: ${values.name} <${values.email}>\nCompany: ${values.company ?? ""}`);
-        window.location.href = `mailto:hello@example.com?subject=${encodeURIComponent(values.subject)}&body=${body}`;
+        window.location.href = `mailto:hh6118915@gmail.com?subject=${encodeURIComponent(values.subject)}&body=${body}`;
         return;
       }
       setStatus("error");

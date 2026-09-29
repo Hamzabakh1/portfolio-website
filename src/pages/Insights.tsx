@@ -33,8 +33,16 @@ export function InsightsPage() {
 export function ArticleDetail() {
   const { slug } = useParams();
   const { t } = useLanguage();
+  const { data } = useContent();
   const [article, setArticle] = useState<Article | null>(null);
-  useEffect(() => { api<Article>(`/api/articles/${slug}`).then(setArticle).catch(() => setArticle(null)); }, [slug]);
+  useEffect(() => {
+    const staticArticle = data?.articles.find((item) => item.slug === slug);
+    if (staticArticle) {
+      setArticle(staticArticle);
+      return;
+    }
+    api<Article>(`/api/articles/${slug}`).then(setArticle).catch(() => setArticle(null));
+  }, [data?.articles, slug]);
   if (!article) return <Section title={t.ui.loadingArticle}><div className="h-80 animate-pulse rounded-lg bg-white/5" /></Section>;
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">

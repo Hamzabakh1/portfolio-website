@@ -2,10 +2,10 @@
   "settings": {
     "profile": {
       "name": "HAMZA BAKH",
-      "headline": "Data Engineer | Data Analyst | BI Developer | Full-Stack Builder",
+      "headline": "Data Engineer & BI | Finance & Operations Analytics | SQL, Python, Snowflake, dbt, Azure & Power BI",
       "location": "Morocco",
-      "email": "hello@example.com",
-      "linkedin": "#",
+      "email": "hh6118915@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/hamza-bakh/",
       "github": "https://github.com/Hamzabakh1",
       "cvUrl": "/Hamza-Bakh-CV.pdf",
       "avatarUrl": ""
@@ -13,7 +13,7 @@
     "home": {
       "badge": "Open to Data & BI Opportunities",
       "heroTitle": "Building reliable data systems that turn complexity into decisions.",
-      "heroText": "Data Engineer and BI Builder focused on scalable pipelines, cloud data warehouses, analytics automation, and business intelligence solutions.",
+      "heroText": "I turn operational data into trusted finance and operations analytics, from reliable pipelines and governed models to dashboards people can use to make decisions.",
       "primaryCta": "Explore My Work",
       "secondaryCta": "Contact Me",
       "trustStrip": ["Data Engineering", "BI & Analytics", "ETL / ELT Pipelines", "Snowflake & SQL", "Power BI & Metabase", "Python Automation", "Full-Stack Development"],
@@ -35,6 +35,12 @@
         "title": "Freshness Check",
         "language": "sql",
         "code": "select source_name, max(updated_at) as last_seen\nfrom analytics.source_audit\ngroup by source_name\nhaving max(updated_at) < now() - interval '24 hours';"
+      },
+      {
+        "id": 2,
+        "title": "Quality Gate",
+        "language": "python",
+        "code": "failed_rows = df[df['customer_id'].isna() | df['amount'].lt(0)]\nif len(failed_rows):\n    raise ValueError(f'{len(failed_rows)} records failed validation')"
       }
     ]
   },
@@ -60,6 +66,42 @@
       },
       {
         "id": 2,
+        "title": "Quality Control Analytics & Reporting System",
+        "slug": "data-quality",
+        "category": "Business Intelligence",
+        "shortDescription": "Quality-control analytics connecting production, harvest, packing, stock, export readiness and client delivery.",
+        "fullDescription": "A practical analytics layer for quality, production and export readiness KPIs, designed around traceability, defects, conformity and delivery decisions.",
+        "challenge": "Quality and operations teams need a single reliable view of rejection, defect, grade and export-readiness signals across batches and destinations.",
+        "solution": "Designed a data model with batch-level quality facts, validation controls, Power BI measures and operational dashboard pages.",
+        "results": "Improved clarity around quality issues, readiness gaps and operational risk before shipment decisions.",
+        "architecture": "ERP, production and quality files feed validation tables, modeled facts and Power BI reports with role-aware views.",
+        "technologies": ["SQL", "Excel", "Power BI", "DAX", "Data Modeling", "Data Validation"],
+        "featured": true,
+        "published": true,
+        "imageUrl": "",
+        "createdAt": "2026-06-29T00:00:00.000Z",
+        "updatedAt": "2026-06-29T00:00:00.000Z"
+      },
+      {
+        "id": 3,
+        "title": "Paper Questionnaire Automation Pipeline",
+        "slug": "paper-questionnaire-automation-pipeline",
+        "category": "Automation",
+        "shortDescription": "Automated paper questionnaires into structured datasets using OCR, Python processing, SQL storage, and BI reporting.",
+        "fullDescription": "A practical pipeline for turning paper-based collection into searchable, validated, analytics-ready datasets.",
+        "challenge": "Manual transcription slowed analysis and introduced quality risks into downstream reporting.",
+        "solution": "Combined OCR capture, Python validation, SQL storage, review queues and dashboard-ready exports.",
+        "results": "Reduced repetitive processing effort and created a clearer audit path from source forms to reporting outputs.",
+        "architecture": "Scanned forms move through OCR extraction, Python cleaning, validation queues, SQL tables and BI dashboards.",
+        "technologies": ["Python", "Pandas", "OCR", "Tesseract", "SQL", "Power BI"],
+        "featured": true,
+        "published": true,
+        "imageUrl": "",
+        "createdAt": "2026-06-29T00:00:00.000Z",
+        "updatedAt": "2026-06-29T00:00:00.000Z"
+      },
+      {
+        "id": 4,
         "title": "Business Intelligence Dashboards for ERP Operations",
         "slug": "erp-operations-bi-dashboards",
         "category": "Business Intelligence",
@@ -70,32 +112,161 @@
         "results": "Improved reporting clarity through reusable models, validation checks, and decision-focused dashboard layouts.",
         "architecture": "ERP data flows through SQL Server models, Power Query transformations, DAX measures, and Power BI reporting layers.",
         "technologies": ["Power BI", "DAX", "Power Query", "SQL Server", "RLS", "ERP Data"],
-        "featured": true,
+        "featured": false,
+        "published": true,
+        "imageUrl": "",
+        "createdAt": "2026-06-29T00:00:00.000Z",
+        "updatedAt": "2026-06-29T00:00:00.000Z"
+      },
+      {
+        "id": 5,
+        "title": "Finance Planning, Forecasting & Analytics Platform",
+        "slug": "finance-planning-analytics-platform",
+        "category": "Finance Analytics",
+        "shortDescription": "Budget, actuals and forecast model with variance analysis, reconciliation controls and analytics-ready outputs.",
+        "fullDescription": "A finance analytics pattern connecting planning inputs, actuals, forecasts, variance explanations and executive-ready reporting outputs.",
+        "challenge": "Finance views need traceable variance logic, consistent definitions and reusable reporting layers.",
+        "solution": "Modeled budget, actual and forecast facts, built reconciliation controls, and prepared KPI views for dashboarding.",
+        "results": "Connected finance inputs to decision-ready variance and forecast views.",
+        "architecture": "Planning files and operational data feed SQL transformations, finance marts and BI reporting layers.",
+        "technologies": ["Python", "SQL", "DAX", "Power BI", "Financial Modeling"],
+        "featured": false,
         "published": true,
         "imageUrl": "",
         "createdAt": "2026-06-29T00:00:00.000Z",
         "updatedAt": "2026-06-29T00:00:00.000Z"
       }
     ],
-    "articles": [],
+    "articles": [
+      {
+        "id": 1,
+        "title": "I don't just work with data. I make it speak.",
+        "slug": "i-dont-just-work-with-data-i-make-it-speak",
+        "excerpt": "Pipelines, real-world datasets and end-to-end delivery across agriculture and financial data.",
+        "content": "A portfolio note about turning raw operational data into reliable models, dashboards and decisions. It connects practical data engineering with stakeholder-ready analytics.",
+        "category": "Data Engineering",
+        "readTime": "4 min",
+        "coverImageUrl": "",
+        "published": true,
+        "publishedAt": "2026-04-01T00:00:00.000Z",
+        "createdAt": "2026-04-01T00:00:00.000Z",
+        "updatedAt": "2026-04-01T00:00:00.000Z"
+      },
+      {
+        "id": 2,
+        "title": "The data industry is asking the wrong question",
+        "slug": "the-data-industry-is-asking-the-wrong-question",
+        "excerpt": "Before choosing a model, teams need data quality, governance, observability and trust.",
+        "content": "A short analysis of why data teams should prioritize quality, ownership, observability and governance before chasing more advanced tooling.",
+        "category": "Data Governance",
+        "readTime": "5 min",
+        "coverImageUrl": "",
+        "published": true,
+        "publishedAt": "2026-04-01T00:00:00.000Z",
+        "createdAt": "2026-04-01T00:00:00.000Z",
+        "updatedAt": "2026-04-01T00:00:00.000Z"
+      },
+      {
+        "id": 3,
+        "title": "Your data platform is not a cost center. It is a P&L lever.",
+        "slug": "your-data-platform-is-not-a-cost-center-it-is-a-p-l-lever",
+        "excerpt": "Why data engineering decisions should connect latency, quality and architecture to financial value.",
+        "content": "A business-facing note about connecting data platform work to revenue, margin, risk and operational execution.",
+        "category": "Finance Analytics",
+        "readTime": "5 min",
+        "coverImageUrl": "",
+        "published": true,
+        "publishedAt": "2026-02-01T00:00:00.000Z",
+        "createdAt": "2026-02-01T00:00:00.000Z",
+        "updatedAt": "2026-02-01T00:00:00.000Z"
+      },
+      {
+        "id": 4,
+        "title": "Morocco data teams need governance they can operate",
+        "slug": "morocco-data-teams-need-governance-they-can-operate",
+        "excerpt": "Change-as-code, approvals, rollback and auditability for reliable Snowflake and BI delivery.",
+        "content": "A practical governance note for teams that need reliable data changes, review paths and audit trails without slowing delivery to a halt.",
+        "category": "Analytics Engineering",
+        "readTime": "6 min",
+        "coverImageUrl": "",
+        "published": true,
+        "publishedAt": "2026-02-01T00:00:00.000Z",
+        "createdAt": "2026-02-01T00:00:00.000Z",
+        "updatedAt": "2026-02-01T00:00:00.000Z"
+      }
+    ],
     "skills": [
-      { "id": 1, "category": "Data Engineering", "name": "Python", "level": 86, "highlighted": true },
-      { "id": 2, "category": "Data Engineering", "name": "SQL", "level": 88, "highlighted": true },
-      { "id": 3, "category": "Business Intelligence", "name": "Power BI", "level": 84, "highlighted": true },
-      { "id": 4, "category": "Cloud & Data Warehousing", "name": "Snowflake", "level": 76, "highlighted": false },
-      { "id": 5, "category": "Full-Stack Development", "name": "React", "level": 78, "highlighted": false }
+      { "id": 1, "category": "Data Engineering", "name": "SQL", "level": 88, "highlighted": true },
+      { "id": 2, "category": "Data Engineering", "name": "Python", "level": 86, "highlighted": true },
+      { "id": 3, "category": "Data Engineering", "name": "ETL / ELT", "level": 84, "highlighted": true },
+      { "id": 4, "category": "Business Intelligence", "name": "Power BI", "level": 84, "highlighted": true },
+      { "id": 5, "category": "Business Intelligence", "name": "Metabase", "level": 80, "highlighted": true },
+      { "id": 6, "category": "Business Intelligence", "name": "KPI Design", "level": 82, "highlighted": true },
+      { "id": 7, "category": "Data Platforms", "name": "SQL Server", "level": 84, "highlighted": true },
+      { "id": 8, "category": "Data Platforms", "name": "Snowflake", "level": 76, "highlighted": false },
+      { "id": 9, "category": "Analytics Engineering", "name": "dbt", "level": 74, "highlighted": false },
+      { "id": 10, "category": "Orchestration", "name": "Prefect", "level": 72, "highlighted": false },
+      { "id": 11, "category": "Orchestration", "name": "Airflow", "level": 72, "highlighted": false },
+      { "id": 12, "category": "Automation", "name": "OCR / Tesseract", "level": 72, "highlighted": false },
+      { "id": 13, "category": "Full-Stack Development", "name": "React", "level": 78, "highlighted": false },
+      { "id": 14, "category": "Full-Stack Development", "name": "TypeScript", "level": 76, "highlighted": false },
+      { "id": 15, "category": "DevOps", "name": "Docker", "level": 76, "highlighted": false }
     ],
     "experiences": [
       {
         "id": 1,
-        "company": "Agridata Consulting",
-        "role": "Data Engineering / BI Projects",
+        "company": "AGRUPA MARCA",
+        "role": "Data Analyst | Financial Services Sector",
         "location": "Morocco",
-        "startDate": "2024",
-        "endDate": "Present",
-        "description": "Data pipelines, Snowflake warehouse integration, Metabase analytics, ERP reporting, OCR automation, and dashboard development.",
-        "technologies": ["Snowflake", "SQL", "Python", "Metabase", "dbt"],
+        "startDate": "Dec 2025",
+        "endDate": "May 2026",
+        "description": "Built analytical datasets and Power BI dashboards for financial and operational reporting, with SQL optimization, VBA automation and data-quality controls.",
+        "technologies": ["Power BI", "SQL", "Excel", "VBA", "Data Modeling"],
         "displayOrder": 1
+      },
+      {
+        "id": 2,
+        "company": "AGRIDATA CONSULTING",
+        "role": "Data Engineer",
+        "location": "Agadir, Morocco",
+        "startDate": "Feb 2025",
+        "endDate": "Jul 2025",
+        "description": "Designed a multi-tenant embedded BI platform from SQL Server to Snowflake, dbt and Metabase, with Python pipelines and Prefect orchestration.",
+        "technologies": ["Snowflake", "SQL Server", "Python", "dbt", "Prefect", "Metabase"],
+        "displayOrder": 2
+      },
+      {
+        "id": 3,
+        "company": "AGRIDATA CONSULTING",
+        "role": "Data Analyst",
+        "location": "Agadir, Morocco",
+        "startDate": "Jun 2024",
+        "endDate": "Sep 2024",
+        "description": "Automated agricultural data preparation and BI reporting with Python, SQL Server, validation rules and Power BI dashboards.",
+        "technologies": ["Python", "Pandas", "NumPy", "SQL Server", "Power BI"],
+        "displayOrder": 3
+      },
+      {
+        "id": 4,
+        "company": "CodSoft",
+        "role": "Data Scientist",
+        "location": "Remote",
+        "startDate": "Jan 2024",
+        "endDate": "Feb 2024",
+        "description": "Completed applied machine-learning projects covering EDA, preprocessing, model training, evaluation and interpretation.",
+        "technologies": ["Python", "Pandas", "NumPy", "Scikit-learn"],
+        "displayOrder": 4
+      },
+      {
+        "id": 5,
+        "company": "Institut Superieur des Peches Maritimes",
+        "role": "Software Developer",
+        "location": "Morocco",
+        "startDate": "Jun 2023",
+        "endDate": "Aug 2023",
+        "description": "Built a graduate tracking information system with SQL Server, Visual Basic 6 and Crystal Reports.",
+        "technologies": ["Visual Basic 6", "SQL Server", "Crystal Reports", "Database Design"],
+        "displayOrder": 5
       }
     ]
   }

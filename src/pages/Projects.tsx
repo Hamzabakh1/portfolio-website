@@ -29,8 +29,16 @@ export function ProjectsPage() {
 export function ProjectDetail() {
   const { slug } = useParams();
   const { t } = useLanguage();
+  const { data } = useContent();
   const [project, setProject] = useState<Project | null>(null);
-  useEffect(() => { api<Project>(`/api/projects/${slug}`).then(setProject).catch(() => setProject(null)); }, [slug]);
+  useEffect(() => {
+    const staticProject = data?.projects.find((item) => item.slug === slug);
+    if (staticProject) {
+      setProject(staticProject);
+      return;
+    }
+    api<Project>(`/api/projects/${slug}`).then(setProject).catch(() => setProject(null));
+  }, [data?.projects, slug]);
   if (!project) return <Section title={t.ui.loadingCaseStudy}><div className="h-80 animate-pulse rounded-lg bg-white/5" /></Section>;
   const demo = getShowcaseProject(project.title.toLowerCase().includes("multi-tenant") ? "multi-tenant" : project.title.toLowerCase().includes("quality") ? "data-quality" : project.title.toLowerCase().includes("paper") ? "validation-framework" : project.title.toLowerCase().includes("finance") ? "finance-planning" : project.title.toLowerCase().includes("azure") ? "azure-real-estate" : undefined);
   return (
