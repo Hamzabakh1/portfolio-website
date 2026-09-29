@@ -75,7 +75,7 @@ export const linkedinProfile = {
         "Translated stakeholder requirements into clear metrics, dashboards and analytical outputs."
       ],
       technologies: ["Power BI", "SQL", "Excel", "VBA", "Data Modeling", "ETL/ELT", "Financial Reporting", "KPI Dashboards"],
-      linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/experience/edit/forms/2829986280/",
+      linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/experience/",
       companyUrl: "https://www.linkedin.com/company/6843455/",
       icon: "finance"
     },
@@ -96,7 +96,7 @@ export const linkedinProfile = {
         "Integrated Metabase dashboards and documented architecture, data flows and decisions."
       ],
       technologies: ["Snowflake", "SQL Server", "Python", "SQL", "dbt", "Prefect", "Metabase", "Docker", "Git"],
-      linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/experience/edit/forms/2448283529/",
+      linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/experience/",
       companyUrl: "https://www.linkedin.com/company/9225706/",
       icon: "platform"
     },
@@ -117,7 +117,7 @@ export const linkedinProfile = {
         "Translated business reporting needs into indicators, dashboards and operational insights."
       ],
       technologies: ["SQL Server", "Python", "Pandas", "NumPy", "Power BI", "Excel", "Data Cleaning", "Data Validation"],
-      linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/experience/edit/forms/2691341312/",
+      linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/experience/",
       companyUrl: "https://www.linkedin.com/company/9225706/",
       icon: "agriculture"
     },
@@ -138,7 +138,7 @@ export const linkedinProfile = {
         "Delivered Titanic, Iris, Sales Prediction and Credit Card Fraud Detection projects."
       ],
       technologies: ["Python", "Pandas", "NumPy", "Scikit-learn", "Data Analysis", "Classification", "Regression"],
-      linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/experience/edit/forms/2340607218/",
+      linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/experience/",
       companyUrl: "https://www.linkedin.com/company/95014631/",
       icon: "science"
     },
@@ -159,7 +159,7 @@ export const linkedinProfile = {
         "Replaced scattered Excel processes with a centralized database-driven workflow."
       ],
       technologies: ["Visual Basic 6", "SQL", "SQL Server", "Crystal Reports", "Database Design", "Reporting"],
-      linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/experience/edit/forms/2777681815/",
+      linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/experience/",
       companyUrl: "https://www.linkedin.com/company/73240373/",
       icon: "software"
     }
@@ -177,11 +177,11 @@ export const linkedinProfile = {
     { name: "Google Business Intelligence Specialization", issuer: "Google", issued: "Dec 2024", credentialId: "3I02WKF0K1Z6", skills: ["Business Intelligence", "Data Visualization"], credentialUrl: "https://www.coursera.org/account/accomplishments/specialization/3I02WKF0K1Z6" }
   ] satisfies LinkedInCertification[],
   projects: [
-    { name: "Quality Control Analytics & Reporting System", period: "Nov 2025 – May 2026", summary: "Quality-control analytics connecting production, harvest, packing, stock, export readiness and client delivery.", stack: ["SQL", "Excel", "Power BI", "Data Modeling", "Data Validation"], impact: "Tracked rejection, defect, grade, conformity and export-readiness KPIs by batch, farm, crop and destination.", associatedWith: "AGRUPA MARCA", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/edit/forms/1159273430/", portfolioPath: "/projects/data-quality", icon: "quality" },
-    { name: "Multi-Tenant Data Platform for Embedded BI", period: "Feb 2025 – Jul 2025", summary: "Tenant-aware analytics platform connecting operational SQL Server data to Snowflake, dbt and Metabase Embedded.", stack: ["SQL Server", "Python", "Prefect", "Snowflake", "dbt", "Metabase Embedded", "Docker"], impact: "Centralized multi-client analytics into reusable pipelines, modeled datasets and controlled dashboards.", associatedWith: "AGRIDATA CONSULTING", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/edit/forms/1996418265/", githubUrl: "https://github.com/Hamzabakh1/PRJ_ETL_METABASE_PFE1", portfolioPath: "/projects/multi-tenant-data-platform-bi-analytics", icon: "platform" },
-    { name: "Agricultural BI Dashboard Automation", period: "Jun 2024 – Sep 2024", summary: "Agricultural survey and operational reporting workflow from Excel files through Python cleaning and SQL Server into Power BI.", stack: ["Python", "Pandas", "NumPy", "SQL Server", "Power BI", "Excel"], impact: "Reduced manual corrections and accelerated access to agricultural performance insights.", associatedWith: "AGRIDATA CONSULTING", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/edit/forms/1158889472/", portfolioPath: "/projects/agricultural-bi-dashboard-automation", icon: "agriculture" },
-    { name: "OCR-Based Survey Data Automation", period: "Jun 2024 – Sep 2024", summary: "Paper and scanned survey forms converted into clean, structured datasets for Excel, SQL and BI reporting.", stack: ["Python", "Pandas", "OCR", "Tesseract", "Excel", "SQL"], impact: "Reduced repetitive manual entry and created a reusable paper-to-digital reporting workflow.", associatedWith: "AGRIDATA CONSULTING", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/edit/forms/1159569375/", portfolioPath: "/projects/ocr-based-survey-data-automation", icon: "ocr" },
-    { name: "Graduate Tracking Management System", period: "Jul 2023 – Aug 2023", summary: "Desktop application for student and graduate records, administrative follow-up, SQL storage and Crystal Reports.", stack: ["Visual Basic 6", "SQL Server", "Crystal Reports", "Database Design"], impact: "Replaced scattered spreadsheets with a centralized database-driven administrative workflow.", associatedWith: "Institut Supérieur des Pêches Maritimes", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/edit/forms/1158968441/", portfolioPath: "/projects/graduate-tracking-management-system", icon: "software" },
+    { name: "Quality Control Analytics & Reporting System", period: "Nov 2025 – May 2026", summary: "Quality-control analytics connecting production, harvest, packing, stock, export readiness and client delivery.", stack: ["SQL", "Excel", "Power BI", "Data Modeling", "Data Validation"], impact: "Tracked rejection, defect, grade, conformity and export-readiness KPIs by batch, farm, crop and destination.", associatedWith: "AGRUPA MARCA", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/", portfolioPath: "/projects/data-quality", icon: "quality" },
+    { name: "Multi-Tenant Data Platform for Embedded BI", period: "Feb 2025 – Jul 2025", summary: "Tenant-aware analytics platform connecting operational SQL Server data to Snowflake, dbt and Metabase Embedded.", stack: ["SQL Server", "Python", "Prefect", "Snowflake", "dbt", "Metabase Embedded", "Docker"], impact: "Centralized multi-client analytics into reusable pipelines, modeled datasets and controlled dashboards.", associatedWith: "AGRIDATA CONSULTING", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/", githubUrl: "https://github.com/Hamzabakh1/PRJ_ETL_METABASE_PFE1", portfolioPath: "/projects/multi-tenant-data-platform-bi-analytics", icon: "platform" },
+    { name: "Agricultural BI Dashboard Automation", period: "Jun 2024 – Sep 2024", summary: "Agricultural survey and operational reporting workflow from Excel files through Python cleaning and SQL Server into Power BI.", stack: ["Python", "Pandas", "NumPy", "SQL Server", "Power BI", "Excel"], impact: "Reduced manual corrections and accelerated access to agricultural performance insights.", associatedWith: "AGRIDATA CONSULTING", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/", portfolioPath: "/projects/agricultural-bi-dashboard-automation", icon: "agriculture" },
+    { name: "OCR-Based Survey Data Automation", period: "Jun 2024 – Sep 2024", summary: "Paper and scanned survey forms converted into clean, structured datasets for Excel, SQL and BI reporting.", stack: ["Python", "Pandas", "OCR", "Tesseract", "Excel", "SQL"], impact: "Reduced repetitive manual entry and created a reusable paper-to-digital reporting workflow.", associatedWith: "AGRIDATA CONSULTING", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/", portfolioPath: "/projects/ocr-based-survey-data-automation", icon: "ocr" },
+    { name: "Graduate Tracking Management System", period: "Jul 2023 – Aug 2023", summary: "Desktop application for student and graduate records, administrative follow-up, SQL storage and Crystal Reports.", stack: ["Visual Basic 6", "SQL Server", "Crystal Reports", "Database Design"], impact: "Replaced scattered spreadsheets with a centralized database-driven administrative workflow.", associatedWith: "Institut Supérieur des Pêches Maritimes", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/", portfolioPath: "/projects/graduate-tracking-management-system", icon: "software" },
     { name: "Database Reliability & Observability Stack", summary: "Production-style PostgreSQL observability stack with metrics, alert rules, Grafana dashboards and failure-drill runbooks.", stack: ["PostgreSQL", "Prometheus", "Alertmanager", "Grafana", "Docker"], impact: "Makes database health, alerting and recovery behavior visible and testable.", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/", githubUrl: "https://github.com/Hamzabakh1/db-infra-observability-stack", icon: "observability" },
     { name: "Enterprise Data Infrastructure & Observability Platform", summary: "End-to-end data infrastructure combining quality controls, PostgreSQL, messaging, monitoring, alerting and incident recovery.", stack: ["Python", "PostgreSQL", "Docker", "Prometheus", "Grafana"], impact: "Provides a complete local lab for reliable data-platform operations.", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/", githubUrl: "https://github.com/Hamzabakh1/enterprise-data-infra-lab", icon: "observability" },
     { name: "Finance Planning, Forecasting & Analytics Platform", summary: "Budget, actuals and forecast model with variance analysis, reconciliation controls and analytics-ready outputs.", stack: ["Python", "SQL", "DAX", "Power BI"], impact: "Connects financial planning inputs to decision-ready variance and forecast views.", linkedinUrl: "https://www.linkedin.com/in/hamza-bakh/details/projects/", githubUrl: "https://github.com/Hamzabakh1/finance-planning-analytics", portfolioPath: "/demos/finance-planning", icon: "finance" }
