@@ -6,7 +6,7 @@ import { Section } from "@/components/Section";
 import { useContent } from "@/hooks/useContent";
 import { useSettings } from "@/hooks/useSettings";
 import { useLanguage } from "@/providers/language";
-import { ProjectCard, SkillsMatrix, ArchitectureFlow, Timeline, InsightCard, PortfolioArchitecture } from "@/pages/SharedViews";
+import { ProjectCard, SkillsMatrix, ArchitectureFlow, Timeline, InsightCard } from "@/pages/SharedViews";
 
 export function HomePage() {
   const { t, lang } = useLanguage();
@@ -50,9 +50,6 @@ export function HomePage() {
           ))}
         </div>
       </div>
-      <Section eyebrow={t.ui.portfolioArchitecture} title={t.ui.portfolioArchitectureTitle}>
-        <PortfolioArchitecture />
-      </Section>
       <Section id="impact" eyebrow={t.impactEyebrow} title={t.impactTitle}>
         <div className="grid gap-4 md:grid-cols-3">
           {(lang === "fr" ? t.impactItems : (home?.impactCards ?? t.impactItems)).map((item) => (
